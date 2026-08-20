@@ -8,6 +8,10 @@ RUN apt-get update \
 
 COPY . /var/www/html/
 
+COPY docker-apache.conf /etc/apache2/conf-available/synergy-food.conf
+
+RUN a2enconf synergy-food
+
 RUN mkdir -p /var/www/html/data \
     && chown -R www-data:www-data /var/www/html/data \
     && chmod -R 775 /var/www/html/data

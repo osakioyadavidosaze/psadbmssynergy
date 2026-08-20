@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: synergy-food
+    runtime: docker
+    plan: free
+    healthCheckPath: /index.php

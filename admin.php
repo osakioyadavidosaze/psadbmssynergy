@@ -64,7 +64,7 @@ $flash = pull_flash();
 ?>
 <!doctype html>
 <html lang="en">
-    <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Manage menu | <?= e(APP_NAME) ?></title><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/features.css"></head>
+    <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Manage menu | <?= e(APP_NAME) ?></title><link rel="stylesheet" href="<?= e(asset('style.css')) ?>"><link rel="stylesheet" href="<?= e(asset('features.css')) ?>"></head>
 <body class="admin-body">
     <header class="site-header"><a class="brand" href="index.php"><span class="brand-mark">S</span><span>synergy<span class="brand-accent">food</span></span></a><div class="header-actions"><span class="user-greeting">Hi, <?= e(current_user()['name']) ?></span><a class="text-link" href="logout.php">Sign out</a><a class="text-link" href="index.php">View public menu →</a></div></header>
     <main class="admin-main"><div class="admin-intro"><div><p class="eyebrow">Kitchen control</p><h1>Manage your menu</h1></div><p>Add, edit, hide or remove items. Changes appear on the public menu instantly.</p></div>

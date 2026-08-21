@@ -12,6 +12,11 @@ function e(string|int|float|null $value): string
     return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
 }
 
+function asset(string $filename): string
+{
+    return file_exists(__DIR__ . '/assets/' . $filename) ? 'assets/' . $filename : $filename;
+}
+
 function redirect(string $url = 'index.php'): never
 {
     header('Location: ' . $url);

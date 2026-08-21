@@ -24,7 +24,7 @@ $flash = pull_flash();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= e(APP_NAME) ?> | Good food, better together</title>
-    <link rel="stylesheet" href="<?= e(asset('style.css')) ?>"><link rel="stylesheet" href="<?= e(asset('features.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('style.css')) ?>"><link rel="stylesheet" href="<?= e(asset('features.css')) ?>"><script src="<?= e(asset('mobile-menu.js')) ?>" defer></script>
 </head>
 <body>
     <header class="site-header">

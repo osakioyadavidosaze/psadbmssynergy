@@ -8,6 +8,8 @@ RUN apt-get update \
 
 COPY . /var/www/html/
 
+RUN rm -f /var/www/html/.htaccess
+
 COPY docker-apache.conf /etc/apache2/conf-available/synergy-food.conf
 
 RUN a2enconf synergy-food

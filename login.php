@@ -54,7 +54,7 @@ $flash = pull_flash();
 ?>
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title><?= $role === 'admin' ? 'Admin sign in' : 'Customer account' ?> | <?= e(APP_NAME) ?></title><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/features.css"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title><?= $role === 'admin' ? 'Admin sign in' : 'Customer account' ?> | <?= e(APP_NAME) ?></title><link rel="stylesheet" href="<?= e(asset('style.css')) ?>"><link rel="stylesheet" href="<?= e(asset('features.css')) ?>"></head>
 <body class="auth-body">
     <main class="auth-shell">
         <a class="brand" href="index.php"><span class="brand-mark">S</span><span>synergy<span class="brand-accent">food</span></span></a>

@@ -63,7 +63,6 @@ function db(): PDO
 
     $count = (int) $pdo->query('SELECT COUNT(*) FROM menu_items')->fetchColumn();
     
-// Force re-seed so images are added
 // 1. Make sure the image column exists
 try {
     $pdo->exec("ALTER TABLE menu_items ADD COLUMN image TEXT");
@@ -83,7 +82,7 @@ $items = [
         'Roasted sweet potato, citrus grains, greens and tahini crunch.',
         'Bowls',
         12.50,
-        'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80',
+        '🥗',
         'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80'
     ],
     [

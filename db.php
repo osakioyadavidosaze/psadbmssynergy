@@ -63,53 +63,47 @@ function db(): PDO
 
     $count = (int) $pdo->query('SELECT COUNT(*) FROM menu_items')->fetchColumn();
     
-if ($count === 0) {
-    // Add the image column if it doesn't exist yet
-    try {
-        $pdo->exec("ALTER TABLE menu_items ADD COLUMN image VARCHAR(500)");
-    } catch (PDOException $e) {
-        // Column already exists – ignore the error
-    }
+// Force re-seed so images are added
+$pdo->exec('DELETE FROM menu_items');
 
-    $seed = $pdo->prepare('INSERT INTO menu_items (name, description, category, price, emoji, image) VALUES (?, ?, ?, ?, ?, ?)');
-    $items = [
-        [
-            'Golden Harvest Bowl',
-            'Roasted sweet potato, citrus grains, greens and tahini crunch.',
-            'Bowls',
-            12.50,
-            '🥗',
-            'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80'
-        ],
-        [
-            'Smoky Garden Burger',
-            'Charred plant-based patty, tomato jam, crisp lettuce and herb aioli.',
-            'Mains',
-            14.00,
-            '🍔',
-            'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80'
-        ],
-        [
-            'Citrus Spark',
-            'Fresh orange, lime, ginger and a bright splash of sparkling water.',
-            'Drinks',
-            5.50,
-            '🍊',
-            'https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=800&q=80'
-        ],
-        [
-            'Chocolate Cloud',
-            'Silky dark chocolate mousse with sea salt and toasted cacao nibs.',
-            'Desserts',
-            7.00,
-            '🍫',
-            'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=800&q=80'
-        ],
-    ];
+$seed = $pdo->prepare('INSERT INTO menu_items (name, description, category, price, emoji, image) VALUES (?, ?, ?, ?, ?, ?)');
+$items = [
+    [
+        'Golden Harvest Bowl',
+        'Roasted sweet potato, citrus grains, greens and tahini crunch.',
+        'Bowls',
+        12.50,
+        '🥗',
+        'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80'
+    ],
+    [
+        'Smoky Garden Burger',
+        'Charred plant-based patty, tomato jam, crisp lettuce and herb aioli.',
+        'Mains',
+        14.00,
+        '🍔',
+        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80'
+    ],
+    [
+        'Citrus Spark',
+        'Fresh orange, lime, ginger and a bright splash of sparkling water.',
+        'Drinks',
+        5.50,
+        '🍊',
+        'https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=800&q=80'
+    ],
+    [
+        'Chocolate Cloud',
+        'Silky dark chocolate mousse with sea salt and toasted cacao nibs.',
+        'Desserts',
+        7.00,
+        '🍫',
+        'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=800&q=80'
+    ],
+];
 
-    foreach ($items as $item) {
-        $seed->execute($item);
-    }
+foreach ($items as $item) {
+    $seed->execute($item);
 }
 
 return $pdo;

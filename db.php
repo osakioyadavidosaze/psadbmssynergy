@@ -67,8 +67,8 @@ function db(): PDO
         $items = [
             ['Golden Harvest Bowl', 'Roasted sweet potato, citrus grains, greens and tahini crunch.', 'Bowls', 12.50, '🥗'],
             ['Smoky Garden Burger', 'Charred plant-based patty, tomato jam, crisp lettuce and herb aioli.', 'Mains', 14.00, '🍔'],
-           ['Citrus Spark', 'Fresh orange, lime, ginger and a bright splash of sparkling water.', 'Drinks', 5.50, '🍊'],
-            ['Chocolate Cloud', 'Silky dark chocolate mousse with sea salt and toasted cacao nibs.', 'Desserts', 7.00, '🍫', 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80'],
+            ['Citrus Spark', 'Fresh orange, lime, ginger and a bright splash of sparkling water.', 'Drinks', 5.50, '🍊'],
+            ['Chocolate Cloud', 'Silky dark chocolate mousse with sea salt and toasted cacao nibs.', 'Desserts', 7.00, '🍫'  ],
         ];
         foreach ($items as $item) {
             $seed->execute($item);

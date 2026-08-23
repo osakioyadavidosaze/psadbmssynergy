@@ -108,6 +108,5 @@ if ($count === 0) {
         }
     }
 
-    return $pdo;
-
+return $pdo;
 }

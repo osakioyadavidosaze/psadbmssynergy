@@ -83,7 +83,7 @@ $items = [
         'Roasted sweet potato, citrus grains, greens and tahini crunch.',
         'Bowls',
         12.50,
-        '🥗',
+        'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80',
         'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80'
     ],
     [

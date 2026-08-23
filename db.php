@@ -62,6 +62,7 @@ function db(): PDO
     }
 
     $count = (int) $pdo->query('SELECT COUNT(*) FROM menu_items')->fetchColumn();
+    
 if ($count === 0) {
     $seed = $pdo->prepare('INSERT INTO menu_items (name, description, category, price, emoji, image) VALUES (?, ?, ?, ?, ?, ?)');
     $items = [

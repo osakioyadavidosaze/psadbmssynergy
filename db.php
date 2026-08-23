@@ -89,6 +89,7 @@ function db(): PDO
         '🥗',
         'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80'
     ],
+       
     [
         'Smoky Garden Burger',
         'Charred plant-based patty, tomato jam, crisp lettuce and herb aioli.',

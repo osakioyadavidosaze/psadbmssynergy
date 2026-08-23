@@ -81,7 +81,7 @@ $items = [
         'Golden Harvest Bowl',
         'Roasted sweet potato, citrus grains, greens and tahini crunch.',
         'Bowls',
-        12.50,
+        124.50,
         '🥗',
         'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80'
     ],
@@ -89,7 +89,7 @@ $items = [
         'Smoky Garden Burger',
         'Charred plant-based patty, tomato jam, crisp lettuce and herb aioli.',
         'Mains',
-        14.00,
+        142.00,
         '🍔',
         'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80'
     ],
@@ -97,7 +97,7 @@ $items = [
         'Citrus Spark',
         'Fresh orange, lime, ginger and a bright splash of sparkling water.',
         'Drinks',
-        5.50,
+        5.5000,
         '🍊',
         'https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=800&q=80'
     ],
@@ -105,7 +105,7 @@ $items = [
         'Chocolate Cloud',
         'Silky dark chocolate mousse with sea salt and toasted cacao nibs.',
         'Desserts',
-        7.00,
+        700.00,
         '🍫',
         'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=800&q=80'
     ],

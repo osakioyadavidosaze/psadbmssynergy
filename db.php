@@ -64,9 +64,19 @@ function db(): PDO
     $count = (int) $pdo->query('SELECT COUNT(*) FROM menu_items')->fetchColumn();
     
 // Force re-seed so images are added
-$pdo->exec('DELETE FROM menu_items');
+// 1. Make sure the image column exists
+try {
+    $pdo->exec("ALTER TABLE menu_items ADD COLUMN image TEXT");
+} catch (PDOException $e) {
+    // ignore if it already exists
+}
 
-$seed = $pdo->prepare('INSERT INTO menu_items (name, description, category, price, emoji, image) VALUES (?, ?, ?, ?, ?, ?)');
+// 2. Clear old data so we can re-seed with images
+$pdo->exec("DELETE FROM menu_items");
+
+// 3. Insert the items with images
+$seed = $pdo->prepare("INSERT INTO menu_items (name, description, category, price, emoji, image) VALUES (?, ?, ?, ?, ?, ?)");
+
 $items = [
     [
         'Golden Harvest Bowl',

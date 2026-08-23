@@ -64,6 +64,13 @@ function db(): PDO
     $count = (int) $pdo->query('SELECT COUNT(*) FROM menu_items')->fetchColumn();
     
 if ($count === 0) {
+    // Add the image column if it doesn't exist yet
+    try {
+        $pdo->exec("ALTER TABLE menu_items ADD COLUMN image VARCHAR(500)");
+    } catch (PDOException $e) {
+        // Column already exists – ignore the error
+    }
+
     $seed = $pdo->prepare('INSERT INTO menu_items (name, description, category, price, emoji, image) VALUES (?, ?, ?, ?, ?, ?)');
     $items = [
         [

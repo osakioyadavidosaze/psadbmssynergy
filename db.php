@@ -63,10 +63,9 @@ function db(): PDO
 
     $count = (int) $pdo->query('SELECT COUNT(*) FROM menu_items')->fetchColumn();
     
-// 1. Make sure the image column exists
-// Make sure the column exists
+// Make sure the image column exists
 try {
-    $pdo->exec("ALTER TABLE menu_items ADD COLUMN image_url TEXT");
+    $pdo->exec("ALTER TABLE menu_items ADD COLUMN image TEXT");
 } catch (PDOException $e) {
     // ignore if it already exists
 }
@@ -74,8 +73,8 @@ try {
 // Clear old data
 $pdo->exec("DELETE FROM menu_items");
 
-// Insert with the correct column name
-$seed = $pdo->prepare("INSERT INTO menu_items (name, description, category, price, emoji, image_url) VALUES (?, ?, ?, ?, ?, ?)");
+// Insert items
+$seed = $pdo->prepare("INSERT INTO menu_items (name, description, category, price, emoji, image) VALUES (?, ?, ?, ?, ?, ?)");
 
 $items = [
     [
@@ -117,3 +116,4 @@ foreach ($items as $item) {
 }
 
 return $pdo;
+}

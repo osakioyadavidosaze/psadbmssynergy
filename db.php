@@ -146,10 +146,6 @@ function db(): PDO
         'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80'
     ],
 ];
-        foreach ($items as $item) {
-            $seed->execute($item);
-        }
-    }
-
-    return $pdo;
+   foreach ($items as $item) {
+    $seed->execute($item);
 }

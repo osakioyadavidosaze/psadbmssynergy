@@ -62,10 +62,26 @@ function db(): PDO
     }
 
     $count = (int) $pdo->query('SELECT COUNT(*) FROM menu_items')->fetchColumn();
-    if ($count === 0) {
-        $seed = $pdo->prepare('INSERT INTO menu_items (name, description, category, price, emoji) VALUES (?, ?, ?, ?, ?)');
-      $items = [
-    [
+   if ($count === 0) {
+    $seed = $pdo->prepare('INSERT INTO menu_items (name, description, category, price, emoji) VALUES (?, ?, ?, ?, ?)');
+
+    $items = [
+        ['Golden Harvest Bowl', 'Roasted sweet potato, citrus grains, greens and tahini crunch.', 'Bowls', 12.50, '🥗'],
+        ['Smoky Garden Burger', 'Charred plant-based patty, tomato jam, crisp lettuce and herb aioli.', 'Mains', 14.00, '🍔'],
+        ['Citrus Spark', 'Fresh orange, lime, ginger and a bright splash of sparkling water.', 'Drinks', 5.50, '🍊'],
+        ['Chocolate Cloud', 'Silky dark chocolate mousse with sea salt and toasted cacao nibs.', 'Desserts', 7.00, '🍫'],
+        ['Herbal Harmony', 'A soothing blend of chamomile, mint and lavender.', 'Drinks', 4.50, '🍵'],
+        ['Spiced Lentil Soup', 'Hearty lentils with a touch of cumin and coriander.', 'Starters', 6.00, '🥣'],
+        ['Berry Bliss Parfait', 'Layers of fresh berries, yogurt and granola.', 'Desserts', 6.50, '🍓'],
+        ['Mediterranean Flatbread', 'Topped with olives, feta, tomatoes and fresh herbs.', 'Mains', 13.00, '🥖'],
+        ['Tropical Smoothie', 'A refreshing blend of mango, pineapple and coconut water.', 'Drinks', 5.00, '🥭'],
+        ['Quinoa & Kale Salad', 'Protein-packed quinoa with kale, cranberries and a lemon vinaigrette.', 'Salads', 11.00, '🥗'],
+    ];
+
+    foreach ($items as $item) {
+        $seed->execute($item);
+    }
+} [
         'Golden Harvest Bowl',
         'Roasted sweet potato, citrus grains, greens and tahini crunch.',
         'Bowls',

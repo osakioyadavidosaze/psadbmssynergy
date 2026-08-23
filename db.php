@@ -103,10 +103,6 @@ if ($count === 0) {
         $seed->execute($item);
     }
 }
-        foreach ($items as $item) {
-            $seed->execute($item);
-        }
-    }
 
 return $pdo;
 }
